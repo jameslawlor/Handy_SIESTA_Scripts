@@ -6,7 +6,8 @@
 
 # [optional] specify a project name - it will use your default
 # (i.e. your most recent project) if you leave this blank
-#SBATCH -U HPC_15_00853# optional project name
+
+#SBATCH -U XXXXXXXXXXXX# optional project name
 
 # load up the correct modules, if required
 module load dot
