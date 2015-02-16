@@ -1,0 +1,105 @@
+SystemName       graphene
+SystemLabel      graphene
+NumberOfAtoms 	8
+NumberOfSpecies  1
+%block ChemicalSpeciesLabel
+ 1   6   C
+%endblock ChemicalSpeciesLabel
+LatticeConstant 	4.92 Ang
+%block LatticeVectors
+    0.866025    0.500000    0.000000
+    0.866025   -0.500000    0.000000
+    0.000000    0.000000    20.00000
+%endblock LatticeVectors
+%block kgrid_Monkhorst_Pack
+64    0   0   0.0
+ 0   64   0   0.0
+ 0    0   1   0.0
+%endblock kgrid_Monkhorst_Pack
+%block BandLines
+1   0.6667 0.3333 0.000
+70  0.0000 0.0000 0.000
+70  0.5000 0.0000 0.000
+70  0.6667 0.3333 0.000
+%endblock BandLines
+AtomicCoordinatesFormat  Ang
+BandlinesScale	ReciprocalLatticeVectors
+AtomicCoordinatesFormat NotScaledCartesianAng
+AtomCoorFormatOut   NotScaledCartesianAng
+%block AtomicCoordinatesAndAtomicSpecies
+7.1400000000	0.0000000000	10.0000000000	 1
+5.7000000000	0.0000000000	10.0000000000	 1
+5.0100000000	1.2298000000	10.0000000000	 1
+3.5700000000	1.2298000000	10.0000000000	 1
+5.0100000000	-1.2298000000	10.0000000000	 1
+3.5700000000	-1.2298000000	10.0000000000	 1
+2.8800000000	0.0000000000	10.0000000000	 1
+1.4400000000	0.0000000000	10.0000000000	 1
+%endblock AtomicCoordinatesAndAtomicSpecies
+PAO.BasisSize     DZP
+PAO.EnergyShift   0.05 eV
+MD.TypeOfRun      CG
+MD.NumCGsteps     0
+MaxSCFIterations  300
+MD.MaxForceTol    0.05 eV/Ang
+#XC.functional	  VDW
+#XC.authors	  DRSLL
+XC.functional	  GGA
+XC.authors	  PBE
+MeshCutoff        400.0 Ry #metal bulks need large meshcutoff/clusters, smaller
+#UseSaveData    true
+#MD.UseSaveXV	.true.
+#MD.UseSaveCG	.true.
+#DM.UseSaveDM	.true.
+DM.MixingWeight   0.10
+DM.NumberPulay    3
+WriteCoorXmol	.true.
+WriteMullikenPop 1
+WriteBands .true.
+WriteEigenvalues        .true.
+#%block SuperCell
+#8 0 0
+#0 8 0
+#0 0 1
+#%endblock SuperCell
+SolutionMethod diagon
+ElectronicTemperature  20 meV
+#ParallelOverK T
+SpinPolarized         .false.          # Logical parameters are: yes or no
+#%block PS.lmax
+#   C   2
+#   H   1
+#   Al  2
+#   Cx  2
+#   Hx  1	
+#%endblock PS.lmax
+%block  ProjectedDensityOfStates
+ -6.5 -2.5 0.05  700    eV
+%endblock ProjectedDensityOfStates
+#%block LocalDensityOfStates
+#-4.25 -3.90 eV
+#%endblock LocalDensityOfStates
+#WriteWaveFunctions .true.
+#%block WaveFuncKPoints
+#0.000 0.000 0.000
+#%endblock WaveFuncKPoints
+#WriteCoorXmol          .true.
+#WriteDenchar           .true.
+#SaveRho			.true.
+#SaveDeltaRho            .true.
+#---------------------------------------------------------------------------------
+#             Linear Optical  Responce
+#---------------------------------------------------------------------------------
+#OpticalCalculation  .True.   #This  enable the optical calculation
+#Optical.EnergyMinimum    0 eV
+#Optical.EnergyMaximum    6 eV
+#%block Optical.Mesh
+# 102 1 1
+#%endblock Optical.Mesh
+#Optical.Broaden  0.03 eV
+#Optical.PolarizationType polarized
+#%block Optical.Vector
+# 1.0 0.0 0.0
+#%endblock Optical.Vector
+# polaraized ( the optical vector defined  the direction of the electric field )
+#unpolarized( the optical  vector defined the direction of the incident light )
